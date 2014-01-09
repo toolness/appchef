@@ -16,8 +16,6 @@ program
 if (!fs.existsSync('component.html'))
   appchef.fail('A component does not exist here.');
 
-appchef.hackLayout(componentsDir);
-
 app = spawn(process.execPath, ['app.js'], {
   cwd: appchef.resolve('node_modules/appmaker'),
   stdio: [process.stdin, process.stdout, process.stderr],
