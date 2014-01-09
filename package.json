@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "description": "Mozilla AppMaker command-line tool.",
   "main": "index.js",
+  "author": {
+    "name": "Atul Varma",
+    "email": "varmaa@gmail.com",
+    "url": "http://toolness.com"
+  },
   "bin": {
     "appchef": "bin/appchef"
   },
@@ -15,6 +20,17 @@
     "colors": "0.6.2",
     "ncp": "0.5.0",
     "string": "1.7.0"
+  },
+  "keywords": [
+    "mozilla",
+    "appmaker"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/toolness/appchef.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toolness/appchef/issues"
   },
   "license": "MPLv2"
 }
