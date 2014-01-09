@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var path = require('path');
+var S = require('string');
+
+var appchef = require('../');
+
+var basename = path.basename(process.cwd());
+var name;
+var program = appchef.program();
+
+program
+  .option('-f, --force', 'force initialization')
+  .parse(process.argv);
+
+if (!appchef.COMPONENT_DIR_REGEXP.test(basename))
+  appchef.fail('Current directory must begin with "component-".');
+
+name = S(basename.match(appchef.COMPONENT_DIR_REGEXP)[1]).camelize();
+
+if (fs.existsSync('component.html') && !program.force)
+  appchef.fail('A component already exists here. Use -f to overwrite.');
+
+appchef.copyTemplate({
+  dirname: process.cwd(),
+  name: name
+}, function(err) {
+  if (err) appchef.fail(err);
+  console.log('Component "' + name + '" initialized.');
+});

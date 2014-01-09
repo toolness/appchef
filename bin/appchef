@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+var program = require('../').program();
+
+program
+  .command('init', 'create a new AppMaker component')
+  .command('serve', 'run development server')
+  .parse(process.argv);
+
+if (!program.runningCommand) program.help();
