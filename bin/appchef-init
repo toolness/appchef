@@ -14,10 +14,7 @@ program
   .option('-f, --force', 'force initialization')
   .parse(process.argv);
 
-if (!appchef.COMPONENT_DIR_REGEXP.test(basename))
-  appchef.fail('Current directory must begin with "component-".');
-
-name = S(basename.match(appchef.COMPONENT_DIR_REGEXP)[1]).camelize();
+name = S(basename).camelize();
 
 if (fs.existsSync('component.html') && !program.force)
   appchef.fail('A component already exists here. Use -f to overwrite.');

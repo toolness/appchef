@@ -7,8 +7,6 @@ var S = require('string');
 
 var packageJSON = require('./package.json');
 
-exports.COMPONENT_DIR_REGEXP = /^component-(.+)$/;
-
 exports.program = function() {
   return program.version(packageJSON.version);
 };
